@@ -1,0 +1,17 @@
+﻿Build started 31. 10. 2017 18:30:29.
+     1>Project "C:\Users\User\Documents\GitHub\Praca\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SegmentationLibrary.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ImageHandler.cpp
+         ImageHandler.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\User\Documents\GitHub\Praca\Segmentation\Debug\SegmentationLibrary.lib" /NOLOGO Debug\GaussianBlur.obj
+         Debug\Graph.obj
+         Debug\ImageHandler.obj
+         Debug\Segmentator.obj
+         Debug\stdafx.obj
+         SegmentationLibrary.vcxproj -> C:\Users\User\Documents\GitHub\Praca\Segmentation\Debug\SegmentationLibrary.lib
+     1>Done Building Project "C:\Users\User\Documents\GitHub\Praca\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.56

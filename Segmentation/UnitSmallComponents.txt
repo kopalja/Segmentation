@@ -1,0 +1,26 @@
+	/*
+	if ( segmentMinSize > 0 ) //Post reunion small segment
+	{
+		int i = 0 ;
+		while( *sortedEdges[i] < 256 )
+		{
+			int index = sortedEdges[i] - &graph->edges[0];
+			int secondIndexDifference = 1;
+			if ( index & 1 == 1 ) secondIndexDifference = graph->width;
+
+
+			Node *root1 = &graph->vertexis[index >> 1]; // get first vertex
+			while ( root1->predecessor != root1 ) root1 = root1->predecessor; // get firt root of segment
+
+			Node *root2 = &graph->vertexis[( index >> 1 ) + secondIndexDifference];
+			while ( root2->predecessor != root2 ) root2 = root2->predecessor;
+
+			if ( ( root1 != root2 ) && ( ( root1->count < segmentMinSize ) || ( root2->count < segmentMinSize ) ) )
+			{
+				if ( root1->height > root2->height ) Merge( root1, root2, sortedEdges[i] );
+				else Merge( root2, root1, sortedEdges[i] );
+			}
+			i++;
+		} 
+	} 
+	*/
