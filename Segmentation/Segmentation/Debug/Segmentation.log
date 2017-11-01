@@ -1,12 +1,22 @@
-﻿Build started 31. 10. 2017 18:30:31.
-     1>Project "C:\Users\User\Documents\GitHub\Praca\Segmentation\Segmentation\Segmentation.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Documents\GitHub\Praca\Segmentation\Debug\Segmentation.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\User\Documents\GitHub\Praca\Segmentation\\SegmentationLibrary\Debug Segmentator.obj kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\User\Documents\GitHub\Praca\Segmentation\Debug\Segmentation.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Documents\GitHub\Praca\Segmentation\Debug\Segmentation.lib" /MACHINE:X86 Debug\Segmentation.obj
+﻿Build started 1. 11. 2017 12:27:22.
+     1>Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Segmentation\Segmentation.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\User\Documents\GitHub\Segmentation\Segmentation\\SegmentationLibrary /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Segmentation.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Segmentation.cpp
+         Segmentation.cpp
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentation\segmentation.cpp(4): warning C4627: '#include <cstdlib>': skipped when looking for precompiled header use
+                 Add directive to 'stdafx.h' or rebuild precompiled header
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentation\segmentation.cpp(5): warning C4627: '#include <crtdbg.h>': skipped when looking for precompiled header use
+                 Add directive to 'stdafx.h' or rebuild precompiled header
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentation\segmentation.cpp(3): warning C4603: '_CRTDBG_MAP_ALLOC' : macro is not defined or definition is different after precompiled header use
+                 Add macro to precompiled header instead of defining here
+                 c:\users\user\documents\github\segmentation\segmentation\segmentation\segmentation.cpp(8) : use of precompiled header
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Debug\Segmentation.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\User\Documents\GitHub\Segmentation\Segmentation\\SegmentationLibrary\Debug Segmentator.obj kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Debug\Segmentation.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Debug\Segmentation.lib" /MACHINE:X86 Debug\Segmentation.obj
          Debug\stdafx.obj
-         C:\Users\User\Documents\GitHub\Praca\Segmentation\Debug\SegmentationLibrary.lib
-         Segmentation.vcxproj -> C:\Users\User\Documents\GitHub\Praca\Segmentation\Debug\Segmentation.exe
-     1>Done Building Project "C:\Users\User\Documents\GitHub\Praca\Segmentation\Segmentation\Segmentation.vcxproj" (Build target(s)).
+         C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Debug\SegmentationLibrary.lib
+         Segmentation.vcxproj -> C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Debug\Segmentation.exe
+     1>Done Building Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Segmentation\Segmentation.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.21
+Time Elapsed 00:00:07.54

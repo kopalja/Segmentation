@@ -30,7 +30,7 @@ HRESULT Segmentator::Process( int argc, char *argv[] )
 			if ( SUCCEEDED( hr ) )
 			{
 				GaussianBlur gaussianBlur;
-				gaussianBlur.Process( pImage, blur );
+				gaussianBlur.Process( blur, pImage );
 				_ASSERTE( _CrtCheckMemory() );
 				//
 				pGraph->CreateGrid( pImage );
