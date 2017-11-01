@@ -1,7 +1,6 @@
 #pragma once
 #include "Node.h"
-#include "Edge.h"
-#include "stdafx.h"
+#include "stdafx.h"	
 #include "Image.h"
 
 using namespace std;

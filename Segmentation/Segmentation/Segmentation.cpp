@@ -14,8 +14,6 @@ int main(int argc, char* argv[])
 	Segmentator s;
 	HRESULT hr = s.Process(argc, argv);
 
-	cout << hr << endl;
-
 	_CrtDumpMemoryLeaks();
 
 

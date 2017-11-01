@@ -11,12 +11,11 @@ int Node::m_TresHoldConstant;
 
 HRESULT Segmentator::Process( int argc, char *argv[] )
 {
-	HRESULT hr;
-	ImageHandler imageHandler( argv[1], argv[2], &hr );
+	int blur = 0;
+	HRESULT hr = ReadParams( argc, argv, &blur );
 	if ( SUCCEEDED( hr ) )
 	{
-		int blur = 0;
-		hr = ReadParams( argc, argv, &blur );
+		ImageHandler imageHandler( argv[1], argv[2], &hr );
 		if ( SUCCEEDED( hr ) )
 		{
 			Image *pImage = new Image( 
@@ -53,25 +52,21 @@ HRESULT Segmentator::Process( int argc, char *argv[] )
 
 HRESULT Segmentator::ReadParams( __in int argc, __in_ecount( argc ) char *argv[], __out int *pBlur )
 {
-	HRESULT hr = S_OK;
 	if ( argc != 5 && argc != 6 ) 
-		hr = E_INVALIDARG;
+		return E_INVALIDARG;
 
-	if ( SUCCEEDED( hr ) )
+	try
 	{
-		try
-		{
-			*pBlur = std::stoi( argv[3] );
-			Node::m_TresHoldConstant = std::stoi( argv[4] );
-			//if ( argc == 6 )
-				//m_SegmentMinSize = std::stoi( argv[5] );
-		}
-		catch ( exception )
-		{
-			hr = E_INVALIDARG;
-		}
+		*pBlur = std::stoi( argv[3] );
+		Node::m_TresHoldConstant = std::stoi( argv[4] );
+		//if ( argc == 6 )
+			//m_SegmentMinSize = std::stoi( argv[5] );
 	}
-	return hr;
+	catch ( exception )
+	{
+		return E_INVALIDARG;
+	}
+	return S_OK;
 }
 
 

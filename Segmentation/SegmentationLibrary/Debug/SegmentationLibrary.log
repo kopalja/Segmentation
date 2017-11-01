@@ -1,9 +1,30 @@
-﻿Build started 1. 11. 2017 14:59:20.
-     1>Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" on node 2 (Build target(s)).
+﻿Build started 1. 11. 2017 15:36:16.
+     1>Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" on node 2 (Rebuild target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.CppClean.targets(75,5): warning : Access to the path 'C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationLibrary\Debug\vc110.pdb' is denied.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SegmentationLibrary.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Segmentator.cpp
-     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\SegmentationLibrary.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SegmentationLibrary.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GaussianBlur.cpp Graph.cpp ImageHandler.cpp Segmentator.cpp
          Segmentator.cpp
+         ImageHandler.cpp
+         Graph.cpp
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\graph.cpp(33): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\graph.cpp(59): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\graph.cpp(61): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\graph.cpp(64): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\graph.cpp(66): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\graph.cpp(73): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\graph.cpp(75): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\graph.cpp(83): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\graph.cpp(85): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         GaussianBlur.cpp
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\gaussianblur.cpp(84): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\gaussianblur.cpp(93): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\gaussianblur.cpp(103): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\gaussianblur.cpp(127): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\gaussianblur.cpp(134): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+     1>c:\users\user\documents\github\segmentation\segmentation\segmentationlibrary\gaussianblur.cpp(141): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+         Generating Code...
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Debug\SegmentationLibrary.lib" /NOLOGO Debug\GaussianBlur.obj
          Debug\Graph.obj
@@ -11,8 +32,8 @@
          Debug\Segmentator.obj
          Debug\stdafx.obj
          SegmentationLibrary.vcxproj -> C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Debug\SegmentationLibrary.lib
-     1>Done Building Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.78
+Time Elapsed 00:00:04.73
