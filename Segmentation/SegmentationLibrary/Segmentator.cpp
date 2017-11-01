@@ -79,30 +79,37 @@ HRESULT Segmentator::ReadParams( __in int argc, __in_ecount( argc ) char *argv[]
 
 void Segmentator::Segment( __inout Graph *pGraph )
 {
-	// 0. Sort Edges
+	/* Sort Edges */
 	int **ppSortedEdgesIndexes = new int*[pGraph->m_NumberOfEdges];
-
 	EdgeSort( pGraph->m_NumberOfEdges, pGraph->m_pEdges, ppSortedEdgesIndexes );
-	// 1. Kazdemu vrcholu priradit vlastnu komponentu (hotovo)
 
-	// 2. Opakuj krok 3
+	/* Segment Process */
 	int i = 0 ;
 	while( *ppSortedEdgesIndexes[i] < 256 )
 	{
+
+		/* Count indices of vertices */
 		int index = ppSortedEdgesIndexes[i] - &pGraph->m_pEdges[0];
 		int secondIndexDifference = 1;
-		if ( ( index & 1 ) == 1 ) secondIndexDifference = pGraph->m_Width;
+		if ( ( index & 1 ) == 1 ) 
+			secondIndexDifference = pGraph->m_Width;
 
-		Node *pRoot1 = &pGraph->m_pVertices[index >> 1]; // get first vertex
-		while ( pRoot1->m_pPredecessor != pRoot1 ) pRoot1 = pRoot1->m_pPredecessor; // get root of segment
-
+		Node *pRoot1 = &pGraph->m_pVertices[index >> 1]; 
 		Node *pRoot2 = &pGraph->m_pVertices[(index >> 1) + secondIndexDifference];
-		while ( pRoot2->m_pPredecessor != pRoot2 ) pRoot2 = pRoot2->m_pPredecessor;
+
+		/* Find roots */
+		while ( pRoot1->m_pPredecessor != pRoot1 ) 
+			pRoot1 = pRoot1->m_pPredecessor; 
+		while ( pRoot2->m_pPredecessor != pRoot2 ) 
+			pRoot2 = pRoot2->m_pPredecessor;
 		
+		/* Merge */
 		if ( ( pRoot1 != pRoot2 ) && ( *ppSortedEdgesIndexes[i] <= pRoot1->m_TresHold) && ( *ppSortedEdgesIndexes[i] <= pRoot2->m_TresHold ) )
 		{
-			if ( pRoot1->m_Height > pRoot2->m_Height ) Merge( pRoot1, pRoot2, ppSortedEdgesIndexes[i] );
-			else Merge( pRoot2, pRoot1, ppSortedEdgesIndexes[i] );
+			if ( pRoot1->m_Height > pRoot2->m_Height ) 
+				Merge( pRoot1, pRoot2, ppSortedEdgesIndexes[i] );
+			else 
+				Merge( pRoot2, pRoot1, ppSortedEdgesIndexes[i] );
 		}
 		i++;
 	}
@@ -115,7 +122,6 @@ void Segmentator::EdgeSort( __in int numberOfEdges, __in_ecount( numberOfEdges )
 	int count[257];
 	for (int i = 0; i < 257; i++) count[i] = 0;
 	int baseIndex[257];
-
 	for (int i = 0; i < numberOfEdges; i++)
 	{
 		count[pEdges[i]]++;
@@ -153,16 +159,20 @@ inline void Segmentator::Merge( __inout Node* root1, __inout Node* root2, __in i
 
 void Segmentator::GraphToImage( __in int numberOfVertices, __in_ecount( numberOfVertices ) Node* pVertices, __out Image *pImage )
 {
+	/* Count Roots */
 	int numberOfRoots = 0;
 	for (int i = 0; i < numberOfVertices; i++)
 	{
 		if ( pVertices[i].m_pPredecessor == &pVertices[i] ) numberOfRoots++;
 	}
 
+	/* Assign colors to roots */
 	Color *pColors = new Color[numberOfRoots];
 	SetColorsToRoots( numberOfVertices, numberOfRoots, pVertices, pColors );
 	int imageIndex = 0;
 
+
+	/* Set image from roots colors */
 	for (int i = 0; i < numberOfVertices; i++)
 	{
 		Node *pRoot = &pVertices[i];
@@ -180,13 +190,17 @@ void Segmentator::GraphToImage( __in int numberOfVertices, __in_ecount( numberOf
 
 void Segmentator::SetColorsToRoots( __in int numberOfVertices, __in int numberOfRoots, __in_ecount( numberOfVertices ) Node* pVertices, __out_ecount( numberOfRoots ) Color* pColors )
 {
+
+	/* Find roots */
 	Node* *ppRoots = new Node*[numberOfRoots];
 	int index = 0;
 	for (int i = 0; i < numberOfVertices; i++)
 	{
-		if ( pVertices[i].m_pPredecessor == &pVertices[i] ) ppRoots[index++] = &pVertices[i];
+		if ( pVertices[i].m_pPredecessor == &pVertices[i] ) 
+			ppRoots[index++] = &pVertices[i];
 	}
 	
+	/* Assign color to roots */
 	int R = 0, G = 0, B = 0;
 	for (int i = 0; i < numberOfRoots; i++)
 	{
