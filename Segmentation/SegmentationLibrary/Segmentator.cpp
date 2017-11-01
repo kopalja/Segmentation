@@ -19,7 +19,6 @@ HRESULT Segmentator::Process( int argc, char *argv[] )
 		hr = ReadParams( argc, argv, &blur );
 		if ( SUCCEEDED( hr ) )
 		{
-			Graph *pGraph = new Graph();
 			Image *pImage = new Image( 
 				imageHandler.InputImageWidth(), 
 				imageHandler.InputImageHeight(), 
@@ -33,19 +32,18 @@ HRESULT Segmentator::Process( int argc, char *argv[] )
 				gaussianBlur.Process( blur, pImage );
 				_ASSERTE( _CrtCheckMemory() );
 				//
-				pGraph->CreateGrid( pImage );
+				Graph graph( pImage );
 				_ASSERTE( _CrtCheckMemory() );
 				//
-				Segment( pGraph );
+				Segment( &graph );
 				_ASSERTE( _CrtCheckMemory() );
 				//
-				GraphToImage( pGraph->m_NumberOfVertices, pGraph->m_pVertices, pImage );
+				GraphToImage( graph.m_NumberOfVertices, graph.m_pVertices, pImage );
 				_ASSERTE( _CrtCheckMemory() );
 				//
 				hr = imageHandler.Save( pImage );
 				_ASSERTE( _CrtCheckMemory() );
 			}
-			delete pGraph;
 			delete pImage;
 		}
 	}
@@ -80,8 +78,9 @@ HRESULT Segmentator::ReadParams( __in int argc, __in_ecount( argc ) char *argv[]
 void Segmentator::Segment( __inout Graph *pGraph )
 {
 	/* Sort Edges */
-	int **ppSortedEdgesIndexes = new int*[pGraph->m_NumberOfEdges];
-	EdgeSort( pGraph->m_NumberOfEdges, pGraph->m_pEdges, ppSortedEdgesIndexes );
+	UINT numberOfEdges = pGraph->m_NumberOfVertices * 2;
+	int **ppSortedEdgesIndexes = new int*[numberOfEdges];
+	EdgeSort( numberOfEdges, pGraph->m_pEdges, ppSortedEdgesIndexes );
 
 	/* Segment Process */
 	int i = 0 ;
@@ -140,17 +139,22 @@ void Segmentator::EdgeSort( __in int numberOfEdges, __in_ecount( numberOfEdges )
 
 inline void Segmentator::Merge( __inout Node* root1, __inout Node* root2, __in int* pEdge )
 {
+	/* Merge trees */
 	root2->m_pPredecessor = root1;
 
-	if ( root1->m_Height == root2->m_Height ) root1->m_Height++;
-		root1->m_Count += root2->m_Count;
+	/* Set height */
+	if ( root1->m_Height == root2->m_Height ) 
+		root1->m_Height++;
 
+	/* Set internalDifference */
 	if ( root2->m_InternalDifference > root1->m_InternalDifference) 
 		root1->m_InternalDifference = root2->m_InternalDifference;
-	
+
 	if ( *pEdge > root1->m_InternalDifference) 
 		root1->m_InternalDifference = *pEdge;
 
+
+	root1->m_Count += root2->m_Count;
 	root1->m_TresHold = root1->m_InternalDifference + Node::m_TresHoldConstant / root1->m_Count;
 }
 

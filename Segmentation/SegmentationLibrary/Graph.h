@@ -9,15 +9,17 @@ using namespace std;
 class Graph
 {
 public:
-	inline Graph(){};
+	Graph( 
+		__in Image *pImage 
+	);
+
 	~Graph();
 
 	Node* m_pVertices;
 	int* m_pEdges;
+
 	int m_NumberOfVertices;
-	int m_NumberOfEdges;
 	int m_Width;
-	int m_Height;
 
 
 	void CreateGrid( 
@@ -25,9 +27,6 @@ public:
 		);
 private:
 
-	void InitVertexis( 
-		__in Image* pImage
-		);
 	void InitEdges( 
 		__in Image* pImage
 		);

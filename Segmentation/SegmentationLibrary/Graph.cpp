@@ -2,6 +2,17 @@
 #include "Graph.h"
 
 
+Graph::Graph( __in Image *pImage )
+{
+	this->m_Width = pImage->width;
+	m_NumberOfVertices = pImage->width * pImage->height;
+
+	m_pVertices = new Node[m_NumberOfVertices];
+	m_pEdges = new int[m_NumberOfVertices * 2];
+
+	InitEdges( pImage );
+}
+
 
 Graph::~Graph()
 {
@@ -10,34 +21,22 @@ Graph::~Graph()
 }
 
 
-void Graph::CreateGrid( __in Image* pImage )
-{
-	this->m_Width = pImage->width;
-	this->m_Height = pImage->height;
-	InitVertexis( pImage );
-	InitEdges( pImage );
-}
 
 
 
-
-void Graph::InitVertexis( __in Image* pImage )
-{
-	m_NumberOfVertices = m_Width * m_Height;
-	m_pVertices = new Node[m_NumberOfVertices];
-}
 
 
 void Graph::InitEdges( __in Image* pImage )
 {
-	m_NumberOfEdges = 2 * m_NumberOfVertices;
-	m_pEdges = new int[m_NumberOfEdges];
-	for (int i = 0; i < m_NumberOfEdges; i++)
+	/* Make all edges invalid */
+	UINT numberOfEdges = m_NumberOfVertices * 2;
+	for (int i = 0; i < numberOfEdges; i++)
 	{
 		m_pEdges[i] = 256;
 	}
 
 
+	/* Greate grayscale bitmap of image */
 	double *pGrayMap = new double[m_NumberOfVertices];
 	int j = 0;
 	for (int i = 0; i < m_NumberOfVertices; i++)
@@ -47,6 +46,8 @@ void Graph::InitEdges( __in Image* pImage )
 		j += 3;
 	}
 
+
+	/* Assign valid values to edges */
 	int decWidth = pImage->width - 1;
 	int decHeight = pImage->height - 1;
 	int i = 0, ei = 0;
@@ -54,26 +55,34 @@ void Graph::InitEdges( __in Image* pImage )
 	{
 		for (int x = 0; x < decWidth; x++)
 		{
-			if ( pGrayMap[i] > pGrayMap[i + 1] ) m_pEdges[ei++] = pGrayMap[i] - pGrayMap[i + 1];
-			else m_pEdges[ei++] = pGrayMap[i + 1] - pGrayMap[i];
+			if ( pGrayMap[i] > pGrayMap[i + 1] ) 
+				m_pEdges[ei++] = pGrayMap[i] - pGrayMap[i + 1];
+			else 
+				m_pEdges[ei++] = pGrayMap[i + 1] - pGrayMap[i];
 
-			if ( pGrayMap[i] > pGrayMap[i + pImage->width] ) m_pEdges[ei++] = pGrayMap[i] - pGrayMap[i + pImage->width];
-			else m_pEdges[ei++] = pGrayMap[i + pImage->width] - pGrayMap[i];
+			if ( pGrayMap[i] > pGrayMap[i + pImage->width] ) 
+				m_pEdges[ei++] = pGrayMap[i] - pGrayMap[i + pImage->width];
+			else 
+				m_pEdges[ei++] = pGrayMap[i + pImage->width] - pGrayMap[i];
 
 			i++;
 		}
 		ei++; // skipping over edge to nowhere
 
-		if ( pGrayMap[i] > pGrayMap[i + pImage->width] ) m_pEdges[ei++] = pGrayMap[i] - pGrayMap[i + pImage->width];
-		else m_pEdges[ei++] = pGrayMap[i + pImage->width] - pGrayMap[i];
+		if ( pGrayMap[i] > pGrayMap[i + pImage->width] )
+			m_pEdges[ei++] = pGrayMap[i] - pGrayMap[i + pImage->width];
+		else 
+			m_pEdges[ei++] = pGrayMap[i + pImage->width] - pGrayMap[i];
 
 		i++;
 	}
 
 	for (int x = 0; x < decWidth; x++)
 	{
-		if ( pGrayMap[i] > pGrayMap[i + 1] ) m_pEdges[ei++] = pGrayMap[i] - pGrayMap[i + 1];
-		else m_pEdges[ei++] = pGrayMap[i + 1] - pGrayMap[i];
+		if ( pGrayMap[i] > pGrayMap[i + 1] ) 
+			m_pEdges[ei++] = pGrayMap[i] - pGrayMap[i + 1];
+		else 
+			m_pEdges[ei++] = pGrayMap[i + 1] - pGrayMap[i];
 		ei++;
 		i++;
 	}
