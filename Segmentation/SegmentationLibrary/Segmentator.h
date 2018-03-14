@@ -11,17 +11,14 @@ class Segmentator
 {
 public:
 	HRESULT Process( 
-		__in int argc,
-		__in_ecount( argc ) char *argv[] 
+		__in char * inputPath,
+		__in char * outputPath,
+		__in int blur,
+		__in int tresHold
 	);
 
 private:
 
-	HRESULT ReadParams( 
-		__in int argc,
-		__in_ecount( argc ) char *argv[],
-		__out int *pBlur
-	);
 
 	void Segment( 
 		__inout Graph* pGraph 

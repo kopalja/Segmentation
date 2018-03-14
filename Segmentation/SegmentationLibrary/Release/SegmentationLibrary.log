@@ -1,18 +1,9 @@
-﻿Build started 12. 10. 2017 8:29:38.
-     1>Project "C:\Users\User\Documents\Visual Studio 2012\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\SegmentationLibrary.pch" /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ImageHandler.cpp
-         ImageHandler.cpp
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"C:\Users\User\Documents\Visual Studio 2012\Segmentation\Release\SegmentationLibrary.lib" /NOLOGO /LTCG Release\GaussianBlur.obj
-         Release\Graph.obj
-         Release\Image.obj
-         Release\ImageHandler.obj
-         Release\Segmentator.obj
-         Release\stdafx.obj
-         SegmentationLibrary.vcxproj -> C:\Users\User\Documents\Visual Studio 2012\Segmentation\Release\SegmentationLibrary.lib
-     1>Done Building Project "C:\Users\User\Documents\Visual Studio 2012\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" (Build target(s)).
+﻿Build started 14. 3. 2018 16:25:05.
+     1>Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         SegmentationLibrary.vcxproj -> C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Release\SegmentationLibrary.lib
+     1>Done Building Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationLibrary\SegmentationLibrary.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.85
+Time Elapsed 00:00:00.07

@@ -1,12 +1,9 @@
-﻿Build started 1. 11. 2017 15:35:16.
-     1>Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationTest\SegmentationTest.vcxproj" on node 3 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\User\Documents\GitHub\Segmentation\Segmentation\\SegmentationLibrary /I"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\UnitTest\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\SegmentationTest.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /FC /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-     1>c:\users\user\documents\github\segmentation\segmentation\segmentationtest\stdafx.cpp : fatal error C1033: cannot open program database 'c:\users\user\documents\github\segmentation\segmentation\segmentationtest\debug\vc110.idb'
-     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
-     1>Done Building Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationTest\SegmentationTest.vcxproj" (Build target(s)) -- FAILED.
+﻿Build started 14. 3. 2018 16:25:20.
+     1>Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationTest\SegmentationTest.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         SegmentationTest.vcxproj -> C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Debug\SegmentationTest.dll
+     1>Done Building Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\SegmentationTest\SegmentationTest.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.60
+Time Elapsed 00:00:01.07

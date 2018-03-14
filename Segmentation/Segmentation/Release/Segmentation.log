@@ -1,24 +1,26 @@
-﻿Build started 12. 10. 2017 8:29:40.
-     1>Project "C:\Users\User\Documents\Visual Studio 2012\Segmentation\Segmentation\Segmentation.vcxproj" on node 2 (Build target(s)).
+﻿Build started 14. 3. 2018 16:25:05.
+     1>Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Segmentation\Segmentation.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\User\Documents\Visual Studio 2012\Segmentation\\SegmentationLibrary" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\Segmentation.pch" /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Segmentation.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\Users\User\Documents\GitHub\Segmentation\Segmentation\\SegmentationLibrary /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\Segmentation.pch" /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Segmentation.cpp
          Segmentation.cpp
      1>Segmentation.cpp(4): warning C4627: '#include <cstdlib>': skipped when looking for precompiled header use
                  Add directive to 'stdafx.h' or rebuild precompiled header
      1>Segmentation.cpp(5): warning C4627: '#include <crtdbg.h>': skipped when looking for precompiled header use
                  Add directive to 'stdafx.h' or rebuild precompiled header
+     1>Segmentation.cpp(7): warning C4627: '#include <tuple>': skipped when looking for precompiled header use
+                 Add directive to 'stdafx.h' or rebuild precompiled header
      1>Segmentation.cpp(3): warning C4603: '_CRTDBG_MAP_ALLOC' : macro is not defined or definition is different after precompiled header use
                  Add macro to precompiled header instead of defining here
                  Segmentation.cpp(8) : use of precompiled header
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Documents\Visual Studio 2012\Segmentation\Release\Segmentation.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Users\User\Documents\Visual Studio 2012\Segmentation\\SegmentationLibrary\Release" Segmentator.obj kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\User\Documents\Visual Studio 2012\Segmentation\Release\Segmentation.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Documents\Visual Studio 2012\Segmentation\Release\Segmentation.lib" /MACHINE:X86 /SAFESEH Release\Segmentation.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Release\Segmentation.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\Users\User\Documents\GitHub\Segmentation\Segmentation\\SegmentationLibrary\Release Segmentator.obj kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Release\Segmentation.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Release\Segmentation.lib" /MACHINE:X86 /SAFESEH Release\Segmentation.obj
          Release\stdafx.obj
-         "C:\Users\User\Documents\Visual Studio 2012\Segmentation\Release\SegmentationLibrary.lib"
+         C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Release\SegmentationLibrary.lib
          Generating code
          Finished generating code
-         Segmentation.vcxproj -> C:\Users\User\Documents\Visual Studio 2012\Segmentation\Release\Segmentation.exe
-     1>Done Building Project "C:\Users\User\Documents\Visual Studio 2012\Segmentation\Segmentation\Segmentation.vcxproj" (Build target(s)).
+         Segmentation.vcxproj -> C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Release\Segmentation.exe
+     1>Done Building Project "C:\Users\User\Documents\GitHub\Segmentation\Segmentation\Segmentation\Segmentation.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.75
+Time Elapsed 00:00:02.23

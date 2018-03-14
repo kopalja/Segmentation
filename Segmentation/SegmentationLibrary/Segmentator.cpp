@@ -9,65 +9,45 @@ int Node::m_TresHoldConstant;
 
 
 
-HRESULT Segmentator::Process( int argc, char *argv[] )
+HRESULT Segmentator::Process( __in char * inputPath, __in char * outputPath, __in int blur, __in int tresHold )
 {
-	int blur = 0;
-	HRESULT hr = ReadParams( argc, argv, &blur );
+	HRESULT hr;
+	Node::m_TresHoldConstant = tresHold;
+
+	ImageHandler imageHandler( inputPath, outputPath, &hr );
 	if ( SUCCEEDED( hr ) )
 	{
-		ImageHandler imageHandler( argv[1], argv[2], &hr );
+		Image *pImage = new Image( 
+			imageHandler.InputImageWidth(), 
+			imageHandler.InputImageHeight(), 
+			imageHandler.InputImageWidth() * imageHandler.InputImageHeight() * imageHandler.InputImageByteDepth(),
+			new BYTE[imageHandler.InputImageWidth() * imageHandler.InputImageHeight() * imageHandler.InputImageByteDepth()] 
+		);
+		hr = imageHandler.Create( pImage );
 		if ( SUCCEEDED( hr ) )
 		{
-			Image *pImage = new Image( 
-				imageHandler.InputImageWidth(), 
-				imageHandler.InputImageHeight(), 
-				imageHandler.InputImageWidth() * imageHandler.InputImageHeight() * imageHandler.InputImageByteDepth(),
-				new BYTE[imageHandler.InputImageWidth() * imageHandler.InputImageHeight() * imageHandler.InputImageByteDepth()] 
-			);
-			hr = imageHandler.Create( pImage );
-			if ( SUCCEEDED( hr ) )
-			{
-				GaussianBlur gaussianBlur;
-				gaussianBlur.Process( blur, pImage );
-				_ASSERTE( _CrtCheckMemory() );
-				//
-				Graph graph( pImage );
-				_ASSERTE( _CrtCheckMemory() );
-				//
-				Segment( &graph );
-				_ASSERTE( _CrtCheckMemory() );
-				//
-				GraphToImage( graph.m_NumberOfVertices, graph.m_pVertices, pImage );
-				_ASSERTE( _CrtCheckMemory() );
-				//
-				hr = imageHandler.Save( pImage );
-				_ASSERTE( _CrtCheckMemory() );
-			}
-			delete pImage;
+			GaussianBlur gaussianBlur;
+			gaussianBlur.Process( blur, pImage );
+			_ASSERTE( _CrtCheckMemory() );
+			//
+			Graph graph( pImage );
+			_ASSERTE( _CrtCheckMemory() );
+			//
+			Segment( &graph );
+			_ASSERTE( _CrtCheckMemory() );
+			//
+			GraphToImage( graph.m_NumberOfVertices, graph.m_pVertices, pImage );
+			_ASSERTE( _CrtCheckMemory() );
+			//
+			hr = imageHandler.Save( pImage );
+			_ASSERTE( _CrtCheckMemory() );
 		}
+		delete pImage;
 	}
 	return hr;
 }
 
 
-HRESULT Segmentator::ReadParams( __in int argc, __in_ecount( argc ) char *argv[], __out int *pBlur )
-{
-	if ( argc != 5 && argc != 6 ) 
-		return E_INVALIDARG;
-
-	try
-	{
-		*pBlur = std::stoi( argv[3] );
-		Node::m_TresHoldConstant = std::stoi( argv[4] );
-		//if ( argc == 6 )
-			//m_SegmentMinSize = std::stoi( argv[5] );
-	}
-	catch ( exception )
-	{
-		return E_INVALIDARG;
-	}
-	return S_OK;
-}
 
 
 void Segmentator::Segment( __inout Graph *pGraph )
